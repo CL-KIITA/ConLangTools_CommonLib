@@ -1,3 +1,5 @@
+import "dart:math";
+
 extension NumSplitter on String {
   List<String> splitForLen(int len) {
     List<String> result = [];
@@ -23,13 +25,34 @@ extension CharCtl on String {
     return chars.join("");
   }
 }
+/**
+A character set, including a part of vowel, semi-vowel, and consonant.
+
+[Set] _vowels, _semiVowels, and _consonants are partition of _allChars.
+
+[Set] _allChars contains all characters in the alphabet(writing system).
+ */
 class VowConsSet{
+  /**
+  All characters in the alphabet(writing system).
+   */
   late final Set<String> _allChars;
+  /**
+  Vowels chars set of the alphabet(writing system).
+   */
   late final Set<String> _vowels;
+  /**
+  Semi-vowels chars set of the alphabet(writing system).
+   */
   late final Set<String> _semiVowels;
+  /**
+  Consonants chars set of the alphabet(writing system).
+   */
   late final Set<String> _consonants;
-  late final CharArrangeSet _charArranges;
-  VowConsSet(Set<String> vowels, Set<String> consonants, Set<String> semiVowels, CharArrangeSet charArranges){
+  /**
+  Constructor.
+   */
+  VowConsSet(Set<String> vowels, Set<String> consonants, Set<String> semiVowels){
     Set<String> vsDiff = vowels.difference(semiVowels);
     Set<String> csDiff = consonants.difference(semiVowels);
     Set<String> vcDiff = vowels.difference(consonants);
@@ -39,39 +62,87 @@ class VowConsSet{
     this._vowels = vowels;
     this._semiVowels = semiVowels;
     this._consonants = consonants;
-    this._allChars = vowels.union(consonants).union(semiVowels);
-    this._charArranges = charArranges;
+    this._allChars = vowels.union(semiVowels).union(consonants);
   }
+  /**
+  All characters in the alphabet(writing system).
+   */
+  Set<String> get allChars => this._allChars;
+  /**
+  Vowels chars set of the alphabet(writing system).
+   */
   Set<String> get vowels => this._vowels;
+  /**
+  Semi-vowels chars set of the alphabet(writing system).
+   */
   Set<String> get semiVowels => this._semiVowels;
+  /**
+  Consonants chars set of the alphabet(writing system).
+   */
   Set<String> get consonants => this._consonants;
-  CharArrangeSet get charArranges => this._charArranges;
+}
+/**
+ A class that represents an arrangement of characters, with a athematic data structure, the pair of bijective finite sets.
 
-}
+ [String] for characters, and [int] for the arrangement position of the characters.
+  */
 class CharArrange extends BijectiveFiniteSets<String, int>{
+  /**
+  A character set, including a part of vowel, semi-vowel, and consonant.
+   */
   List<String> get chars => this.domain;
+  /**
+  An arrangement position of the characters.
+   */
   List<int> get places => this.codomain;
+  /**
+  Returns the arrangement position of the character.
+   */
   int plaseByChar(String char)=> this.surjection[char];
+  /**
+  Returns the character at the arrangement position.
+   */
   String charByPlace(int place)=> this.injection[place];
-  Function(String, String) get compare =>(String a, String b)=> this.plaseByChar(a).compareTo(this.plaseByChar(b));
+  /**
+  Returns the compare method of characters, with the arrangement position.
+   */
+  int Function(String, String) get compare =>(String a, String b)=> this.plaseByChar(a).compareTo(this.plaseByChar(b));
 }
+/**
+A Hah Compress class for each hah compress algorithm.
+*/
 class HahComp{
-  static int Function(String, String) defaultCompare = (a, b) => a.compareTo(b);
-  static hahComp(String str, [int len = 4]){
+  /**
+  Default compare method for pre-sort.
+   */
+  static int Function(String, String) _defaultCompare = (a, b) => a.compareTo(b);
+  /**
+  Applies original hah compress algorithm to the given string.
+   */
+  static String hahComp(String str, [int len = 4]){
     List<String> temp = str.splitForLen(len);
     List<String> result = temp.map((String s) => s.substring(0, 1) + s.substring(s.length - 1, 1)).toList();
     return result.join("");
   }
-  static randomHahComp(String str, [Random? random,int len = 4]){
+  /**
+  Applies randomized hah compress algorithm to the given string.
+   */
+  static String randomHahComp(String str, [Random? random,int len = 4]){
     String temp = str.shuffle(random);
     return HahComp.hahComp(temp, len);
   }
-  static sortHahComp(String str, int Function(String,String) compare,[,int Function(String,String)? preCompare, int len = 4]){
+  /**
+  Applies sorted hah compress algorithm to the given string.
+   */
+  static String sortHahComp(String str, CharArrange charArranges,{int Function(String,String)? preCompare, int len = 4}){
     String temp = str.sort(preCompare ?? HahComp.defaultCompare);
     String temp2 = HahComp.hahComp(temp, len);
-    return temp2.sort(compare);
+    return temp2.sort(charArranges.compare);
   }
-  static byCharHahComp(String str, VowConsSet vcs, [int len = 4]){
+  /**
+  Applies hah compress algorithm using by char kind of vowels, semi-vowels, and consonants to the given string.
+   */
+  static String byCharHahComp(String str, VowConsSet vcs, CharArrange charArranges, [int len = 4]){
     List<String> temp = str.split("");
     String vowelsOnStr = temp.where((String s) => vcs.vowels.contains(s)).toList().join("");
     String semiVowelsOnStr = temp.where((String s) => vcs.semiVowels.contains(s)).toList().join("");
@@ -80,20 +151,39 @@ class HahComp{
     String hahedSemiVowels = HahComp.hahComp(semiVowelsOnStr, len);
     String hahedConsonants = HahComp.hahComp(consonantsOnStr, len);
     String result = hahedVowels + hahedSemiVowels + hahedConsonants;
-    result.sort(vcs.charArranges.compare);
+    result.sort(charArranges.compare);
     return result;
   }
+  /**
+  Default compare method for pre-sort.
+   */
+  static int Function(String,String) get defaultCompare => HahComp._defaultCompare;
 }
+/**
+Methods that appies hah compress to a string.
+ */
 extension HahCompApply on String{
+  /**
+  Applies original hah compress algorithm to the given string.
+   */
   String hahComp([int len = 4]){
     return HahComp.hahComp(this, len);
   }
+  /**
+  Applies randomized hah compress algorithm to the given string.
+   */
   String randomHahComp([Random? random,int len = 4]){
     return HahComp.randomHahComp(this, random, len);
   }
+  /**
+  Applies sorted hah compress algorithm to the given string.
+   */
   String sortHahComp(int Function(String,String) compare,[int Function(String,String)? preCompare, int len = 4]){
     return HahComp.sortHahComp(this, compare, preCompare, len);
   }
+  /**
+  Applies hah compress algorithm using by char kind of vowels, semi-vowels, and consonants to the given string.
+   */
   String byCharHahComp(VowConsSet vcs, [int len = 4]){
     return HahComp.byCharHahComp(this, vcs, len);
   }
