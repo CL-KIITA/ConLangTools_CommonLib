@@ -28,9 +28,9 @@ extension CharCtl on String {
 /**
 A character set, including a part of vowel, semi-vowel, and consonant.
 
-[Set] _vowels, _semiVowels, and _consonants are partition of _allChars.
+[Set] vowels, semiVowels, and consonants are partition of allChars.
 
-[Set] _allChars contains all characters in the alphabet(writing system).
+[Set] allChars contains all characters in the alphabet(writing system).
  */
 class VowConsSet{
   /**
@@ -53,9 +53,9 @@ class VowConsSet{
   Constructor.
    */
   VowConsSet(Set<String> vowels, Set<String> consonants, Set<String> semiVowels){
-    Set<String> vsDiff = vowels.difference(semiVowels);
-    Set<String> csDiff = consonants.difference(semiVowels);
-    Set<String> vcDiff = vowels.difference(consonants);
+    Set<String> vsDiff = vowels.intersection(semiVowels);
+    Set<String> csDiff = consonants.intersection(semiVowels);
+    Set<String> vcDiff = vowels.intersection(consonants);
     if(vsDiff.isNotEmpty || csDiff.isNotEmpty || vcDiff.isNotEmpty){
       throw Exception("Vowels, semiVowels, consonants must be disjoint");
     }

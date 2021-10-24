@@ -66,9 +66,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">VowConsSet(Set&lt;String&gt; vowels, Set&lt;String&gt; consonants, Set&lt;String&gt; semiVowels){
-  Set&lt;String&gt; vsDiff = vowels.difference(semiVowels);
-  Set&lt;String&gt; csDiff = consonants.difference(semiVowels);
-  Set&lt;String&gt; vcDiff = vowels.difference(consonants);
+  Set&lt;String&gt; vsDiff = vowels.intersection(semiVowels);
+  Set&lt;String&gt; csDiff = consonants.intersection(semiVowels);
+  Set&lt;String&gt; vcDiff = vowels.intersection(consonants);
   if(vsDiff.isNotEmpty || csDiff.isNotEmpty || vcDiff.isNotEmpty){
     throw Exception(&quot;Vowels, semiVowels, consonants must be disjoint&quot;);
   }
