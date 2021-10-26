@@ -1,4 +1,5 @@
 import "dart:math";
+import "package:common_extensions/common_onCollection.dart";
 
 extension NumSplitter on String {
   List<String> splitForLen(int len) {
@@ -87,6 +88,7 @@ class VowConsSet{
  [String] for characters, and [int] for the arrangement position of the characters.
   */
 class CharArrange extends BijectiveFiniteSets<String, int>{
+  CharArrange(Iterable<Pair<String, int>> pairsOfCharsAndPositions): super<String, int>(pairsOfCharsAndPositions);
   /**
   A character set, including a part of vowel, semi-vowel, and consonant.
    */
