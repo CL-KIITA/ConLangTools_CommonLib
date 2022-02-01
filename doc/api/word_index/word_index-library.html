@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="word_index library API docs, for the Dart programming language.">
+  <title>word_index library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">conlang_tools_common_lib</a></li>
+    <li class="self-crumb">word_index library</li>
+  </ol>
+  <div class="self-name">word_index</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-library">word_index</span> library 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Contains two Word Indexes named as "Toki-Pona Word-Count Index" (abbr: TWI) and "Common Toki-Pona Word-Count Index" (abbr: CTWI)</p>
+<p>The details of TWI and CTWI, such as definitions, formulae, and considerations, please see the article, <a href="https://migdal.jp/cl_kiita/tp-に関する思案-第二ラウンド-4j4p">TP に関する思案 - Migdal 🗼</a>.</p>
+</section>
+
+
+
+
+
+
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>Functions</h2>
+
+      <dl class="callables">
+        <dt id="calcCTWI" class="callable">
+  <span class="name"><a href="../word_index/calcCTWI.html">calcCTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcCTWI-param-word"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">word</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate CTWI from word counts 
+  
+
+</dd>
+
+        <dt id="calcCTWIFromTWI" class="callable">
+  <span class="name"><a href="../word_index/calcCTWIFromTWI.html">calcCTWIFromTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcCTWIFromTWI-param-twi"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">twi</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate CTWI from TWI 
+  
+
+</dd>
+
+        <dt id="calcTWI" class="callable">
+  <span class="name"><a href="../word_index/calcTWI.html">calcTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcTWI-param-word"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">word</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate TWI from word counts 
+  
+
+</dd>
+
+        <dt id="calcTWIFromCTWI" class="callable">
+  <span class="name"><a href="../word_index/calcTWIFromCTWI.html">calcTWIFromCTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcTWIFromCTWI-param-ctwi"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">ctwi</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate TWI from CTWI 
+  
+
+</dd>
+
+        <dt id="calcWordFromCTWI" class="callable">
+  <span class="name"><a href="../word_index/calcWordFromCTWI.html">calcWordFromCTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcWordFromCTWI-param-ctwi"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">ctwi</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate word counts from CTWI 
+  
+
+</dd>
+
+        <dt id="calcWordFromTWI" class="callable">
+  <span class="name"><a href="../word_index/calcWordFromTWI.html">calcWordFromTWI</a></span><span class="signature">(<wbr><span class="parameter" id="calcWordFromTWI-param-twi"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">twi</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.14.4/dart-core/int-class.html">int</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  calculate word counts from TWI 
+  
+
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">conlang_tools_common_lib</a></li>
+  <li class="self-crumb">word_index library</li>
+</ol>
+
+
+    <h5><span class="package-name">conlang_tools_common_lib</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="../dicformat_convert/dicformat_convert-library.html">convert</a></li>
+      <li><a href="../dicformat_formats/dicformat_formats-library.html">formats</a></li>
+      <li><a href="../hahComp/hahComp-library.html">hahComp</a></li>
+      <li><a href="../lang_index/lang_index-library.html">lang_index</a></li>
+      <li><a href="../metric/metric-library.html">metric</a></li>
+      <li><a href="../word_index/word_index-library.html">word_index</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>word_index library</h5>
+    <ol>
+
+
+
+
+
+  <li class="section-title"><a href="../word_index/word_index-library.html#functions">Functions</a></li>
+  <li><a href="../word_index/calcCTWI.html">calcCTWI</a></li>
+  <li><a href="../word_index/calcCTWIFromTWI.html">calcCTWIFromTWI</a></li>
+  <li><a href="../word_index/calcTWI.html">calcTWI</a></li>
+  <li><a href="../word_index/calcTWIFromCTWI.html">calcTWIFromCTWI</a></li>
+  <li><a href="../word_index/calcWordFromCTWI.html">calcWordFromCTWI</a></li>
+  <li><a href="../word_index/calcWordFromTWI.html">calcWordFromTWI</a></li>
+
+
+
+</ol>
+
+  </div><!--/sidebar-offcanvas-right-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    conlang_tools_common_lib
+      0.0.0-unknown
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

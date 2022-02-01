@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the similarity method from the LevenshteinApply extension, for the Dart programming language.">
-  <title>similarity method - LevenshteinApply extension - metric library - Dart API</title>
+  <meta name="description" content="API docs for the calcWordFromTWI function from the word_index library, for the Dart programming language.">
+  <title>calcWordFromTWI function - word_index library - Dart API</title>
 
 
   
@@ -13,15 +13,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
-  <link rel="stylesheet" href="../../static-assets/github.css?v1">
-  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
-  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
 
   
 </head>
 
 
-<body data-base-href="../../"
+<body data-base-href="../"
       data-using-base-href="false">
 
 <div id="overlay-under-drawer"></div>
@@ -29,12 +29,11 @@
 <header id="title">
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="../../index.html">conlang_tools_common_lib</a></li>
-    <li><a href="../../metric/metric-library.html">metric</a></li>
-    <li><a href="../../metric/LevenshteinApply.html">LevenshteinApply</a></li>
-    <li class="self-crumb">similarity method</li>
+    <li><a href="../index.html">conlang_tools_common_lib</a></li>
+    <li><a href="../word_index/word_index-library.html">word_index</a></li>
+    <li class="self-crumb">calcWordFromTWI function</li>
   </ol>
-  <div class="self-name">similarity</div>
+  <div class="self-name">calcWordFromTWI</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,32 +44,29 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">similarity</span> method 
+<h1><span class="kind-function">calcWordFromTWI</span> function 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
 </h1></div>
 
     <section class="multi-line-signature">
-      
+        
 
 <span class="returntype"><a href="https://api.dart.dev/stable/2.14.4/dart-core/int-class.html">int</a></span>
-<span class="name ">similarity</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="similarity-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/String-class.html">String</a></span> <span class="parameter-name">other</span></span></li>
+<span class="name ">calcWordFromTWI</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="calcWordFromTWI-param-twi"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.14.4/dart-core/double-class.html">double</a></span> <span class="parameter-name">twi</span></span></li>
 </ol>)
-
-      
 
     </section>
     
 <section class="desc markdown">
-  <p>Returns Similarity between two strings</p>
+  <p>calculate word counts from TWI</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int similarity(String other){
-  return Levenshtein.similarity(this, other);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">int calcWordFromTWI(double twi)=&gt;(120*twi).round();</code></pre>
 </section>
 
 
@@ -84,30 +80,32 @@
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../../index.html">conlang_tools_common_lib</a></li>
-  <li><a href="../../metric/metric-library.html">metric</a></li>
-  <li><a href="../../metric/LevenshteinApply.html">LevenshteinApply</a></li>
-  <li class="self-crumb">similarity method</li>
+  <li><a href="../index.html">conlang_tools_common_lib</a></li>
+  <li><a href="../word_index/word_index-library.html">word_index</a></li>
+  <li class="self-crumb">calcWordFromTWI function</li>
 </ol>
 
 
-    <h5>LevenshteinApply extension</h5>
+    <h5>word_index library</h5>
     <ol>
 
 
 
 
 
-    <li class="section-title"><a href="../../metric/LevenshteinApply.html#instance-methods">Methods</a></li>
-    <li><a href="../../metric/LevenshteinApply/leven.html">leven</a></li>
-    <li><a href="../../metric/LevenshteinApply/similarity.html">similarity</a></li>
-
+  <li class="section-title"><a href="../word_index/word_index-library.html#functions">Functions</a></li>
+  <li><a href="../word_index/calcCTWI.html">calcCTWI</a></li>
+  <li><a href="../word_index/calcCTWIFromTWI.html">calcCTWIFromTWI</a></li>
+  <li><a href="../word_index/calcTWI.html">calcTWI</a></li>
+  <li><a href="../word_index/calcTWIFromCTWI.html">calcTWIFromCTWI</a></li>
+  <li><a href="../word_index/calcWordFromCTWI.html">calcWordFromCTWI</a></li>
+  <li><a href="../word_index/calcWordFromTWI.html">calcWordFromTWI</a></li>
 
 
 
 </ol>
 
-  </div><!--/.sidebar-offcanvas-->
+  </div><!--/.sidebar-offcanvas-left-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div><!--/.sidebar-offcanvas-->
@@ -125,8 +123,8 @@
 
 
 
-<script src="../../static-assets/highlight.pack.js?v1"></script>
-<script src="../../static-assets/script.js?v1"></script>
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
 
 
 
