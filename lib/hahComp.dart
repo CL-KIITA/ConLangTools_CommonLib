@@ -88,7 +88,7 @@ class VowConsSet{
  [String] for characters, and [int] for the arrangement position of the characters.
   */
 class CharArrange extends BijectiveFiniteSets<String, int>{
-  CharArrange(Iterable<Pair<String, int>> pairsOfCharsAndPositions): super<String, int>(pairsOfCharsAndPositions);
+  CharArrange(Iterable<Pair<String, int>> pairsOfCharsAndPositions): super.withIter(pairsOfCharsAndPositions);
   /**
   A character set, including a part of vowel, semi-vowel, and consonant.
    */
